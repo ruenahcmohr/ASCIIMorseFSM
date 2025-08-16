@@ -1,6 +1,6 @@
 /***********************************************************************************
 
-math rom
+  ascii to morse code generator.
 
 INPUTS
  - argument A, 7 bits ascii value
@@ -9,7 +9,7 @@ INPUTS
 
 OUTPUTS
  - morse bit (0)
- - done  bit (1)
+ - /done  bit (1)
  
 FEEDBACK
  - feedback (5 bits)
@@ -93,7 +93,7 @@ char getMorse(char c, uint8_t slot) {
   
   for (i = 0; chars[i] ; i++)  if (chars[i] == c) break;
   
-  if (i == 37) return '\0';
+  if (chars[i] == '\0') return '\0';
   
   p = strlen(morse[i]);
   
@@ -127,7 +127,7 @@ int main(void) {
      
      // build input values
      spliceValueFromField( &AsciiI,        A,  7,   0, 1, 2, 3, 4, 5, 6);      // Ascii input, 7 bits (its just 7 bit)
-     spliceValueFromField( &StateI,        A,  6,   7, 8, 9, 10, 11 );  // FSM state, 6 bits , could be 5
+     spliceValueFromField( &StateI,        A,  5,   7, 8, 9, 10, 11 );  // FSM state, 6 bits , could be 5
      
     
 
